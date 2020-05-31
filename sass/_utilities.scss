@@ -1,0 +1,177 @@
+/*------------ container---------------*/
+.container{
+  max-width: $max-width;
+  margin: auto;// to center everything
+  overflow: hidden;
+  padding: 0 2rem;
+  margin-top: 6rem;// because navbar cover everything
+  margin-bottom: 3rem;
+}
+
+/*-----------text styles-------------*/
+.x-large{
+  font-size: 4rem;
+  line-height: 1.2;
+  margin-bottom: 1rem;
+}
+.large{
+  font-size: 3rem;
+  line-height: 1.2;
+  margin-bottom: 1rem;
+}
+.lead{
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+.text-primary{
+  color: $primary-color;
+}
+/*-----------img-------------*/
+.round-img{
+  border-radius: 50%;
+}
+/*----------- line ------------*/
+.line{
+  height: 1px;
+  background-color: #ccc;
+  margin: 1.5rem 0;
+}
+/*------------- buttons --------------*/
+.btn{
+  display: inline-block;
+/* add default background color of the light color 
+we're gonna add other classes like btn-primary & stuff to change color */ 
+  background-color: $light-color;
+  color: #333;
+  padding: 0.4rem 1.3rem;
+  border: none;
+  outline: none;
+  font-size: 1rem;
+  cursor: pointer; // because we use that on links & actual btns  
+  margin-right: 0.5rem;
+  transition: all 0.2s ease-in;
+  &:hover{
+    background-color: lighten($color: $dark-color, $amount: 20%);
+    color: #fff;
+  }
+  // the different color classes so use the same nixin with background 
+  &.btn-primary{
+    @include set-background($primary-color);
+    &:hover{
+      background: lighten($color: $primary-color, $amount: 5%);
+    }
+  }
+  &.btn-dark{
+    @include set-background($dark-color);
+    &:hover{
+      background: lighten($color: $dark-color, $amount: 5%);
+    }
+  }
+  &.btn-success{
+    @include set-background($success-color);
+    &:hover{
+      background: lighten($color: $success-color, $amount: 5%);
+    }
+  }
+  &.btn-danger{
+    @include set-background($danger-color);
+    &:hover{
+      background: lighten($color: $danger-color, $amount: 5%);
+    }
+  }
+}
+/*--------------- alerts-------------*/
+.alert{
+  padding: 0.8rem;
+  margin: 1rem;
+  opacity: 0.9;
+  background-color: $light-color;
+  color: #333;
+
+  &.alert-primary{
+    @include set-background($primary-color);
+  }
+  &.alert-dark{
+    @include set-background($dark-color);
+  }
+  &.alert-success{
+    @include set-background($success-color);
+  }
+  &.alert-danger{
+    @include set-background($danger-color);
+  }
+}
+/*--------------- badges -------------*/
+.badge{
+  font-size: 0.8rem;
+  padding: 0.1rem;
+  text-align: center;
+  margin: 0.3rem;
+  background-color: $light-color;
+  color: #333;
+
+  &.badge-primary{
+    @include set-background($primary-color);
+  }
+  &.badge-dark{
+    @include set-background($dark-color);
+  }
+  &.badge-success{
+    @include set-background($success-color);
+  }
+  &.badge-danger{
+    @include set-background($danger-color);
+  }
+}
+
+/*----------- background -------------*/
+// .bg{
+//   &-primary{ // & is placeholder replaced with bg
+/* instead of repeating background-color & color
+with all of them use mixin make it in config.scss */
+//     background-color: $primary-color;
+//     color: #fff
+//   }
+// }
+.bg {
+  &-primary {
+    @include set-background($primary-color);
+  }
+  &-light {
+    @include set-background($light-color);
+    border: 1px solid #ccc;
+  }
+  &-dark {
+    @include set-background($dark-color);
+  }
+  &-success {
+    @include set-background($success-color);
+  }
+  &-danger{
+    @include set-background($danger-color);
+  }
+  &-white {
+    @include set-background(#fff);
+    border: 1px solid #ccc;
+  }
+}
+// we style it here because we may use it in many places 
+.dark-overlay{
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: rgba($color: #000000, $alpha: 0.7);
+}
+
+/*--------------- table -------------*/
+.table{
+  th, td{
+    padding: 1rem;
+    text-align: left
+  }
+  th{
+    background-color: $light-color
+  }
+}
